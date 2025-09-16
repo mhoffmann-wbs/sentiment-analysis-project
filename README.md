@@ -19,3 +19,7 @@ python src/train.py --data data/train.csv --out models/sentiment.joblib
 Run the predictions in the command line. Use any sentence you like.
 
 python src/predict.py "That was the best" "I'm happy "Whoa! That's terrible" "That's so bad"
+# Output format: label  probability  text
+# Example:
+# 1    0.982    I absolutely loved it
+# 0    0.015    That was awful
