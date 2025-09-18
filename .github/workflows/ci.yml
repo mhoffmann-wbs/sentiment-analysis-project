@@ -8,12 +8,16 @@ on:
       - "data/**"
       - "requirements.txt"
       - ".github/workflows/**"
+      - "Dockerfile"
+      - "data/**"
   pull_request:
     paths:
       - "src/**"
       - "data/**"
       - "requirements.txt"
       - ".github/workflows/**"
+      - "Dockerfile"
+      - "data/**"
 
 jobs:
   run-predict:
