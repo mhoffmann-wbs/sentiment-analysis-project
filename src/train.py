@@ -60,7 +60,7 @@ def save_model(model: Pipeline, model_path: str) -> None:
     """
     os.makedirs(os.path.dirname(model_path), exist_ok=True)
     dump(model, model_path)
-    print(f"Saved model to {model_path}") # noqa: T201
+    print(f"Saved model to {model_path}")  # noqa: T201
 
 
 def main(data_path: str, model_path: str) -> None:
@@ -73,7 +73,7 @@ def main(data_path: str, model_path: str) -> None:
 
     # Evaluate and print accuracy
     acc = clf.score(X_test, y_test)
-    print(f"Test accuracy: {acc:.3f}") # noqa: T201
+    print(f"Test accuracy: {acc:.3f}")  # noqa: T201
 
     save_model(clf, model_path)
 
