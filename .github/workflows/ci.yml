@@ -84,7 +84,7 @@ jobs:
 
   run-predict:
     runs-on: ubuntu-latest
-    needs: [mypy--type-check, ruff--lint-and-format]
+    needs: [pytest--tests]
     timeout-minutes: 10
     steps:
       - name: Check out repository
