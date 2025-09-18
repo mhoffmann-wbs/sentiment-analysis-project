@@ -134,13 +134,7 @@ jobs:
         with:
           payload: |
             {
-              "text": "*CI Pipeline Summary for `${{ github.repository }}`* on branch *${{ github.ref_name }}*\n
-              • Type-check: *${{ needs.type-check.result }}*\n
-              • Lint & Format: *${{ needs.lint-and-format.result }}*\n
-              • Tests: *${{ needs.test.result }}*\n
-              • Run Predict: *${{ needs.run-predict.result }}*\n
-              • Build & Push: *${{ needs.build-and-push.result }}*\n
-              <${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|View details>"
+              "text": "*CI Pipeline Summary for `${{ github.repository }}`* on branch *${{ github.ref_name }}*\n• Type-check: *${{ needs.type-check.result }}*\n• Lint & Format: *${{ needs.lint-and-format.result }}*\n• Tests: *${{ needs.test.result }}*\n• Run Predict: *${{ needs.run-predict.result }}*\n• Build & Push: *${{ needs.build-and-push.result }}*\n<${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|View details>"
             }
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
