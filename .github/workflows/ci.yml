@@ -35,7 +35,7 @@ jobs:
       - name: Install dependencies
         run: |
           pip install -r requirements.txt
-          pip install mypy
+          pip install pandas-stubs mypy
 
       - name: Run mypy
         run: mypy src
@@ -133,8 +133,15 @@ jobs:
         uses: slackapi/slack-github-action@v1.24.0
         with:
           payload: |
+          payload: |
             {
-              "text": "CI pipeline for *${{ github.repository }}* on branch *${{ github.ref_name }}* has *${{ job.status }}*.\n<${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|View details>"
+              "text": "*CI Pipeline Summary for `${{ github.repository }}`* on branch *${{ github.ref_name }}*\n
+              • Type-check: *${{ needs.type-check.result }}*\n
+              • Lint & Format: *${{ needs.lint-and-format.result }}*\n
+              • Tests: *${{ needs.test.result }}*\n
+              • Run Predict: *${{ needs.run-predict.result }}*\n
+              • Build & Push: *${{ needs.build-and-push.result }}*\n
+              <${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|View details>"
             }
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
